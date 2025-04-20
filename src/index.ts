@@ -7,7 +7,7 @@ import { readFileSync } from "fs";
 import path from "path";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt((process.env.PORT || 3000) as string);
 
 const packageJsonPath = path.join(__dirname, "..", "package.json");
 const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8"));
@@ -16,7 +16,7 @@ app.get("/health", (req, res) => {
   return res.status(200).json({ status: "ok", version: packageJson.version });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
