@@ -36,5 +36,5 @@ jobs:
           name: v${{ steps.version.outputs.version }}
           token: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Trigger Render Deploy
-        run: curl -X GET "${{secrets.RENDER_WEBHOOK}}"
+      # - name: Trigger Render Deploy
+      #   run: curl -X GET "${{secrets.RENDER_WEBHOOK}}"
